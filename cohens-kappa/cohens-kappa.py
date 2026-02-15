@@ -4,22 +4,27 @@ def cohens_kappa(rater1, rater2):
     """
     Compute Cohen's Kappa coefficient.
     """
+    if len(rater1) != len(rater2):
+          raise ValueError("Both lists must have the same length")
+      
     n = len(rater1)
     
-    # Build frequency maps manually
+    # Build frequency maps
     freq1 = {}
-    for label in rater1:
-        freq1[label] = freq1.get(label, 0) + 1
-        
     freq2 = {}
-    for label in rater2:
-        freq2[label] = freq2.get(label, 0) + 1
-    
+
     # Observed agreement (p_o)
     agreements = 0
     for i in range(n):
-        if rater1[i] == rater2[i]:
+        label1 = rater1[i]
+        label2 = rater2[i]
+
+        freq1[label1] = freq1.get(label1, 0) + 1
+        freq2[label2] = freq2.get(label2, 0) + 1
+      
+        if label1 == label2:
             agreements += 1
+          
     p_o = agreements / n
     
     # Chance agreement (p_e)
