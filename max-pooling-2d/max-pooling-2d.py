@@ -2,6 +2,7 @@ def max_pooling_2d(X, pool_size):
     """
     Apply 2D max pooling with non-overlapping windows.
     """
+
     H = len(X)
     W = len(X[0])
   
@@ -26,4 +27,3 @@ def max_pooling_2d(X, pool_size):
             out[i][j] = local_max
 
     return out
-    
