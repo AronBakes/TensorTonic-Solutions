@@ -4,9 +4,6 @@ def cohens_kappa(rater1, rater2):
     """
     Compute Cohen's Kappa coefficient.
     """
-    if len(rater1) != len(rater2):
-          raise ValueError("Both lists must have the same length")
-      
     n = len(rater1)
     
     # Build frequency maps
