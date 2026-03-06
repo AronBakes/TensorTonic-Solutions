@@ -2,8 +2,6 @@ def text_chunking(tokens, chunk_size, overlap):
     """
     Split tokens into fixed-size chunks with optional overlap.
     """
-
-
     chunks = []
     step = chunk_size - overlap
 
